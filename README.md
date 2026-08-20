@@ -1,11 +1,11 @@
 # The Bush Collection
 
-Booking and property management platform for The Bush Collection — a full-stack web app for showcasing lodges/properties, managing rooms, packages, bookings, payments, and admin content.
+Booking and property management platform for The Bush Collection: a full-stack web app for showcasing lodges/properties, managing rooms, packages, bookings, payments, and admin content.
 
 The repo is a monorepo with two apps:
 
-- [`TheBushCollection-bend/`](TheBushCollection-bend) — REST API server
-- [`TheBushCollection-fend/`](TheBushCollection-fend) — customer-facing web app + admin UI
+- [`TheBushCollection-bend/`](TheBushCollection-bend) - REST API server
+- [`TheBushCollection-fend/`](TheBushCollection-fend) - customer-facing web app + admin UI
 
 ## Tech Stack
 
