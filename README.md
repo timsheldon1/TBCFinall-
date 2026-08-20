@@ -1,6 +1,6 @@
 # The Bush Collection
 
-Booking platform for a collection of African safari lodges and beach properties — lets guests browse properties, book rooms and packages, and pay online, while staff manage listings, rates, and reservations from an admin dashboard.
+Booking platform for a collection of African safari lodges and beach properties, lets guests browse properties, book rooms and packages, and pay online, while staff manage listings, rates, and reservations from an admin dashboard.
 
 Live demo: https://thebushcollection.africa
 Stack: React, TypeScript, Node.js, Express, MongoDB, Tailwind CSS
@@ -13,7 +13,7 @@ Small hospitality groups often juggle a handful of properties across spreadsheet
 
 - Browse properties and rooms with seasonal, guest-count-aware pricing
 - Book rooms/packages and pay online via Pesapal
-- Admin dashboard for properties, rooms, amenities, media, and reviews — no code changes needed to update a listing
+- Admin dashboard for properties, rooms, amenities, media, and reviews, no code changes needed to update a listing
 - Automated booking confirmations and PDF receipts by email
 - Contact form and Mailchimp newsletter signup for lead capture
 
@@ -49,8 +49,8 @@ The backend is an Express 5 API with Mongoose models for properties, rooms, book
 
 ## What I would do differently
 
-The CORS allowlist and a couple of other settings are hardcoded in `server.js` rather than pulled from environment config — fine at the current scale, but I'd move those to env vars before adding another environment (e.g. a staging deployment).
+The CORS allowlist and a couple of other settings are hardcoded in `server.js` rather than pulled from environment config, fine at the current scale, but I'd move those to env vars before adding another environment (e.g. a staging deployment).
 
 ## Status
 
-In production and actively maintained — live at thebushcollection.africa.
+In production and actively maintained. Live at thebushcollection.africa.
