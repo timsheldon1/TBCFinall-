@@ -58,28 +58,8 @@ export default function OptimizedImage({
       };
     }
 
-    // Lazy path: do a HEAD probe then fall back to image loader
+    // Lazy path: load via a background Image() and swap in on success
     async function tryHeadThenImage() {
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 4000);
-        let headOk = false;
-        try {
-          const resp = await fetch(src, { method: 'HEAD', mode: 'cors', signal: controller.signal });
-          clearTimeout(timeout);
-          if (resp && resp.ok) headOk = true;
-        } catch (err) {
-          // HEAD might be blocked by CORS or not supported - fall through to Image loader
-        }
-
-        if (headOk) {
-          if (!cancelled) setCurrentSrc(src);
-          return;
-        }
-      } catch (err) {
-        // ignore and fallback to Image loader
-      }
-
       try {
         const img = new Image();
         img.decoding = decoding as any;

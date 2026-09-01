@@ -26,14 +26,10 @@ export default function Login() {
     setError('');
 
     try {
-      const success = await login(email, password);
-      if (success) {
-        navigate('/', { replace: true });
-      } else {
-        setError('Invalid email or password. Please try again.');
-      }
+      await login(email, password);
+      navigate('/', { replace: true });
     } catch (err) {
-      setError('An error occurred during login. Please try again.');
+      setError(err instanceof Error ? err.message : 'An error occurred during login. Please try again.');
     } finally {
       setIsLoading(false);
     }

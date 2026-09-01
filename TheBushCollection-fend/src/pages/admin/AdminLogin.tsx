@@ -73,7 +73,7 @@ export const AdminLogin = () => {
         setError('Invalid email or password')
       }
     } catch (err) {
-      setError('An error occurred during login')
+      setError(err instanceof Error ? err.message : 'An error occurred during login')
     } finally {
       setIsLoading(false)
     }

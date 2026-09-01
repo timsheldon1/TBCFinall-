@@ -21,26 +21,14 @@ const TEAM = [
     featured: true,
   },
   {
-    name: 'Paul Muchiri, MBA CPA',
-    role: 'General Manager',
-    image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1772015030/Paul_jguahv.png',
-    bio: 'Experienced hospitality leader providing strategic leadership and ensuring exceptional service standards across all properties.',
-  },
-  {
     name: 'James Mwangi',
     role: 'Head of IT',
     image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1769681709/James_wfhj6t.jpg',
     bio: 'Designs personalized itineraries and ensures every guest receives attentive, tailored service from inquiry to return.',
   },
   {
-    name: 'Linda Otieno',
-    role: 'Head of Reservations & Sales',
-    image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1771577013/linda2_k2ipao.jpg',
-    bio: 'Passionate hotelier dedicated to creating memorable guest experiences while driving sales growth and operational excellence.',
-  },
-  {
     name: 'Molly Obondi',
-    role: 'Sales & Reservations',
+    role: 'Sales & Reservations Manager',
     image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1769681709/Molly_uutxyb.jpg',
     bio: 'With a genuine love for hospitality, takes pride in connecting guests with the perfect stay experience.',
   },
@@ -104,7 +92,7 @@ export default function About() {
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay loop muted playsInline
         >
-          <source src="/images/16.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dfaakg2ds/video/upload/v1784698812/MBUYU_TATU_gcuqgh.mov" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-tbc-ink via-tbc-ink/60 to-tbc-ink/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-tbc-ink/70 via-tbc-ink/20 to-transparent" />

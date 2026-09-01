@@ -311,7 +311,7 @@ export default function Receipt({ booking, onEmailReceipt, onClose }: ReceiptPro
               )}
               <li>• Keep this receipt for your records</li>
               <li>• For any changes or cancellations, contact us at least 48 hours in advance</li>
-              <li>• Emergency contact: +254 116072343</li>
+              <li>• Emergency contact: +254 700 613165</li>
             </ul>
           </div>
           
@@ -335,7 +335,7 @@ export default function Receipt({ booking, onEmailReceipt, onClose }: ReceiptPro
               </a>{' '}
               or call{' '}
               <span className="ml-1 font-medium text-gray-700">
-                +254 116 072 343
+                +254 700 613165
               </span>
             </p>
           </div>          

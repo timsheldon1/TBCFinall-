@@ -31,7 +31,7 @@ const PAGE_URL  = `${SITE_URL}/media`;
 
 const PAGE_TITLE       = 'Safari Photos & Videos | East Africa Media Gallery | The Bush Collection';
 const PAGE_DESCRIPTION = 'Explore stunning safari photos and videos from East Africa\'s finest lodges and wildlife reserves. Browse our media gallery featuring wildlife, landscapes, and luxury safari experiences in Kenya and Tanzania.';
-const HERO_IMAGE = 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774957025/IMG_6207-2_sutr1y.jpg';
+const HERO_IMAGE = 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1784699852/J26-0448_iux7ke.jpg';
 
 const categories = ['all', 'Wildlife', 'Landscapes', 'Culture', 'Accommodations', 'Activities', 'Safari Experience'];
 
@@ -313,7 +313,7 @@ export default function MediaCenter() {
                   </h1>
 
                   <p className="text-white/60 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-10">
-                    Explore our curated collection of wildlife photography, landscape images, and safari videos captured across Kenya and Tanzania's most spectacular destinations — from the Masai Mara to the Serengeti.
+                    Explore our curated collection of wildlife photography, landscape images, and safari videos captured across Kenya and Tanzania's most spectacular destinations, from the Masai Mara to the Serengeti.
                   </p>
                 </motion.div>
               </div>
@@ -888,7 +888,7 @@ export default function MediaCenter() {
               <address className="not-italic">
                 <h4 className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-medium mb-5">Contact</h4>
                 <ul className="space-y-3 text-white/25 text-sm font-light list-none p-0">
-                  <li><a href="tel:+254116072343" className="hover:text-[#c9a961] transition-colors">+254 116 072 343</a></li>
+                  <li><a href="tel:+254700613165" className="hover:text-[#c9a961] transition-colors">+254 700 613165</a></li>
                   <li><a href="mailto:info@thebushcollection.africa" className="hover:text-[#c9a961] transition-colors">info@thebushcollection.africa</a></li>
                   <li>42 Claret Close, Silanga Road, Karen</li>
                   <li>P.O Box 58671-00200, Nairobi, Kenya</li>

@@ -9,6 +9,7 @@ import { useBackendProperties } from '@/hooks/useBackendProperties';
 import type { Property } from '@/hooks/useBackendProperties';
 import slugify from '@/lib/slugify';
 import Footer from '@/components/Footer';
+import ImageLightbox from '@/components/ImageLightbox';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -57,6 +58,8 @@ export default function RoomDetail() {
   const { properties, loading, error } = useBackendProperties();
 
   const [imgIdx, setImgIdx] = useState(0);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [showMoreThumbs, setShowMoreThumbs] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [property, setProperty] = useState<Property | null>(null);
   const [room, setRoom] = useState<Room | null>(null);
@@ -186,9 +189,24 @@ export default function RoomDetail() {
       <section ref={heroRef} className="relative h-screen min-h-[720px] overflow-hidden -mt-[80px]">
 
         {/* Background */}
-        <div key={imgIdx} className="absolute inset-0">
+        <div key={imgIdx} className="absolute inset-0 overflow-hidden bg-tbc-ink">
           {heroImg && !isVideo(heroImg) ? (
-            <img src={heroImg} alt={room.name} className="w-full h-full object-cover" fetchPriority="high" />
+            <>
+              {/* Blurred fill — avoids empty bars when the photo's aspect ratio doesn't match the hero */}
+              <img
+                src={heroImg}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-50"
+              />
+              {/* Full photo — never cropped, so portrait/tall shots don't get zoomed in */}
+              <img
+                src={heroImg}
+                alt={room.name}
+                className="absolute inset-0 w-full h-full object-contain"
+                fetchPriority="high"
+              />
+            </>
           ) : heroImg && isVideo(heroImg) ? (
             <video className="w-full h-full object-cover" muted loop playsInline autoPlay>
               <source src={heroImg} type="video/mp4" />
@@ -257,27 +275,63 @@ export default function RoomDetail() {
 
         {/* Thumbnail strip */}
         {images.length > 1 && (
-          <div className="absolute bottom-6 right-10 md:right-16 z-30 hidden sm:flex items-end gap-1.5">
-            {images.slice(0, 5).map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setImgIdx(i)}
-                className={`overflow-hidden transition-all duration-400 ${
-                  i === imgIdx ? 'w-16 h-10 ring-1 ring-tbc-gold' : 'w-10 h-7 opacity-35 hover:opacity-65'
-                }`}
-                aria-label={`Go to image ${i + 1}`}
-              >
-                {isVideo(img) ? (
-                  <div className="w-full h-full bg-tbc-surface flex items-center justify-center">
-                    <Play className="w-2.5 h-2.5 text-white/40" />
-                  </div>
-                ) : (
-                  <img src={img} alt="" className="w-full h-full object-cover" />
-                )}
-              </button>
-            ))}
-            {images.length > 5 && (
-              <span className="text-white/25 text-[9px] tracking-wider ml-1 font-light">+{images.length - 5}</span>
+          <div className="absolute bottom-6 right-10 md:right-16 z-30 hidden sm:flex flex-col-reverse items-end gap-1.5">
+            {/* Main row — stays pinned to the bottom */}
+            <div className="flex items-end gap-1.5">
+              {images.slice(0, 5).map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setImgIdx(i)}
+                  className={`overflow-hidden transition-all duration-400 ${
+                    i === imgIdx ? 'w-16 h-10 ring-1 ring-tbc-gold' : 'w-10 h-7 opacity-35 hover:opacity-65'
+                  }`}
+                  aria-label={`Go to image ${i + 1}`}
+                >
+                  {isVideo(img) ? (
+                    <div className="w-full h-full bg-tbc-surface flex items-center justify-center">
+                      <Play className="w-2.5 h-2.5 text-white/40" />
+                    </div>
+                  ) : (
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  )}
+                </button>
+              ))}
+              {images.length > 5 && (
+                <button
+                  onClick={() => setShowMoreThumbs(v => !v)}
+                  className="w-10 h-7 flex items-center justify-center border border-white/15 hover:border-white/40 text-white/45 hover:text-white text-[9px] tracking-wider font-light transition-all duration-300"
+                  aria-label={showMoreThumbs ? 'Show fewer photos' : `View ${images.length - 5} more photos`}
+                >
+                  {showMoreThumbs ? '−' : `+${images.length - 5}`}
+                </button>
+              )}
+            </div>
+
+            {/* Expanded row — remaining images, revealed above the main row */}
+            {showMoreThumbs && images.length > 5 && (
+              <div className="flex flex-wrap justify-end gap-1.5 max-w-[220px] md:max-w-[280px]">
+                {images.slice(5).map((img, idx) => {
+                  const i = idx + 5;
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => setImgIdx(i)}
+                      className={`overflow-hidden transition-all duration-400 ${
+                        i === imgIdx ? 'w-16 h-10 ring-1 ring-tbc-gold' : 'w-10 h-7 opacity-35 hover:opacity-65'
+                      }`}
+                      aria-label={`Go to image ${i + 1}`}
+                    >
+                      {isVideo(img) ? (
+                        <div className="w-full h-full bg-tbc-surface flex items-center justify-center">
+                          <Play className="w-2.5 h-2.5 text-white/40" />
+                        </div>
+                      ) : (
+                        <img src={img} alt="" className="w-full h-full object-cover" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             )}
           </div>
         )}
@@ -397,8 +451,8 @@ export default function RoomDetail() {
           <div className="flex flex-col lg:flex-row gap-px h-[60vh] min-h-[380px]">
             {/* Large image */}
             <div
-              className="lg:w-[58%] overflow-hidden group cursor-pointer flex-shrink-0"
-              onClick={() => setImgIdx(0)}
+              className="lg:w-[58%] h-[45%] lg:h-full overflow-hidden group cursor-pointer flex-shrink-0"
+              onClick={() => setLightboxIdx(0)}
             >
               <img
                 src={images[0]}
@@ -409,13 +463,13 @@ export default function RoomDetail() {
             </div>
 
             {/* 2×2 right grid */}
-            <div className="lg:w-[42%] grid grid-cols-2 gap-px flex-1 lg:flex-none">
+            <div className="lg:w-[42%] h-[55%] lg:h-full grid grid-cols-2 gap-px flex-1 lg:flex-none">
               {[1, 2, 3, 4].map(i =>
                 images[i] ? (
                   <div
                     key={i}
                     className="overflow-hidden group cursor-pointer relative"
-                    onClick={() => setImgIdx(i)}
+                    onClick={() => setLightboxIdx(i)}
                   >
                     <img
                       src={images[i]}
@@ -424,7 +478,7 @@ export default function RoomDetail() {
                       loading="lazy"
                     />
                     {i === 4 && images.length > 5 && (
-                      <div className="absolute inset-0 bg-tbc-ink/55 flex items-center justify-center pointer-events-none">
+                      <div className="absolute inset-0 bg-tbc-ink/55 flex items-center justify-center group-hover:bg-tbc-ink/65 transition-colors duration-300">
                         <span className="text-white/75 text-xs tracking-[0.25em] uppercase font-light">
                           +{images.length - 5} more
                         </span>
@@ -437,6 +491,16 @@ export default function RoomDetail() {
               )}
             </div>
           </div>
+
+          {lightboxIdx !== null && (
+            <ImageLightbox
+              images={images}
+              index={lightboxIdx}
+              onClose={() => setLightboxIdx(null)}
+              onIndexChange={setLightboxIdx}
+              altPrefix={room.name}
+            />
+          )}
         </section>
       )}
 

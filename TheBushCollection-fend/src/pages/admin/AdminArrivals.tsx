@@ -426,14 +426,14 @@ export default function AdminArrivals() {
         <div class="card-content">
           <div class="info-columns">
             <div><strong>Check-in/Check-out Times</strong><br>Check-in: 2:00 PM<br>Check-out: 11:00 AM</div>
-            <div><strong>Emergency Contact</strong><br>24/7 Support: +254 116072343<br>info@thebushcollection.africa</div>
+            <div><strong>Emergency Contact</strong><br>24/7 Support: +254 700 613165<br>info@thebushcollection.africa</div>
           </div>
         </div>
       </div>
       <div class="footer">
         <div class="company-info">
           <div><strong>The Bush Collection</strong><br>Creating unforgettable safari experiences</div>
-          <div><strong>Contact</strong><br>+254 116072343<br>info@thebushcollection.africa</div>
+          <div><strong>Contact</strong><br>+254 700 613165<br>info@thebushcollection.africa</div>
           <div><strong>Address</strong><br>42 Claret Close, Silanga Road, Karen<br>P.O BOX 58671-00200, Nairobi</div>
         </div>
         <p>This voucher is valid only for the specified date and guest. Please present upon arrival.</p>

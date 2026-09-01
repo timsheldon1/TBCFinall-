@@ -18,7 +18,7 @@ const organizationSchema = {
   "name": "The Bush Collection",
   "description": "Luxury bush camps and beach lodges across Kenya and Tanzania. Over 40 years of safari heritage offering exclusive bush camps, coastal retreats, and authentic African wildlife experiences.",
   "url": "https://thebushcollection.africa",
-  "telephone": "+254116072343",
+  "telephone": "+254700613165",
   "email": "info@thebushcollection.africa",
   "address": {
     "@type": "PostalAddress",
@@ -209,36 +209,36 @@ export default function Index() {
 
   const carouselData = useMemo(() => [
     {
-      place: 'Mwazaro Beach Lodge',
+      place: 'Mbuyu Watatu Lodge',
       subtitle: 'South Coast, Kenya',
       title: 'Witness The',
       title2: 'Dolphins',
       description: 'Wake to the sound of the Indian Ocean, stroll along 300 metres of untouched beach and mangroves, and feel the true rhythm of coastal Kenya.',
-      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1768894027/pset55ygysk9ktfmpxrq_jcwj9s.jpg'
+      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774959103/Zaromwa-5058_rbuzud.jpg'
     },
     {
-      place: 'Mwazaro Beach Lodge',
+      place: 'Mbuyu Watatu Lodge',
       subtitle: 'South Coast, Kenya',
       title: 'Explore The',
       title2: 'Water Wilderness',
       description: 'Dive into a unique aquatic landscape where the lagoon meets ocean. Kayak, snorkel or simply drift into calm as the tides spin their magic.',
-      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774516537/MB-6689_luajpg.jpg'
+      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774957026/IMG_6219_ma0fz0.jpg'
     },
     {
-      place: 'Mwazaro Beach Lodge',
+      place: 'Mbuyu Watatu Lodge',
       subtitle: 'South Coast, Kenya',
       title: 'Experience The',
       title2: 'Magic of The Beach',
       description: 'A rare blend of tranquility and adventure. As the Indian Ocean meets lush mangroves, this lodge is your gateway to Kenya\'s wildlife and coastal charm.',
-      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774957089/IMG_6442_ghwuwk.jpg'
+      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774959103/Zaromwa-4634_m7f4qj.jpg'
     },
     {
-      place: 'Mwazaro Beach Lodge',
+      place: 'Mbuyu Watatu Lodge',
       subtitle: 'South Coast, Kenya',
       title: 'Discover The',
       title2: 'Secret Coastline',
       description: 'Where the turquoise waters of the Indian Ocean meet the serene beauty of untouched nature a sanctuary for the soul.',
-      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774958649/Mwazaro_Feb-110_iusor2.jpg'
+      image: 'https://res.cloudinary.com/dfaakg2ds/image/upload/v1784699850/J26-1138_l6m9mo.jpg'
     }
   ], []);
 
@@ -719,7 +719,7 @@ export default function Index() {
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="relative h-[55vh] md:h-[65vh] overflow-hidden" aria-label="Safari atmosphere">
           <img
-            src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1774958649/Mwazaro_Feb-110_iusor2.jpg"
+            src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1784699852/J26-0448_iux7ke.jpg"
             alt="Luxury bush camp — East African wilderness"
             className="w-full h-full object-cover"
             loading="lazy"

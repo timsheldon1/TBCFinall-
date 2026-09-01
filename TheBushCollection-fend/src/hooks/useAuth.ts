@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import axios from 'axios'
 import api, { setAuthToken, initAuthFromStorage } from '@/lib/api'
 
 interface User {
@@ -155,11 +156,15 @@ export const useAuthState = (): AuthState & AuthExtras => {
       }
 
       setLoading(false)
-      return false
+      throw new Error('Invalid email or password. Please try again.')
     } catch (error) {
       console.error('Login error:', error)
       setLoading(false)
-      return false
+      const message =
+        (axios.isAxiosError(error) && error.response?.data?.msg) ||
+        (error instanceof Error ? error.message : null) ||
+        'An error occurred during login. Please try again.'
+      throw new Error(message)
     }
   }, [])
 

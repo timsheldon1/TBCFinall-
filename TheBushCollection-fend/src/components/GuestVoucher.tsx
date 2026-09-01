@@ -195,7 +195,7 @@ const GuestVoucher: React.FC<GuestVoucherProps> = ({ movement, booking }) => {
           </div>
           <div>
             <p className="font-semibold">Contact Information</p>
-            <p>+254 116072343</p>
+            <p>+254 700 613165</p>
             <p>info@thebushcollection.africa</p>
           </div>
           <div>

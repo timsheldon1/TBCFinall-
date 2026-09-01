@@ -6,9 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { MessageCircle, X, Send, Bot, User, Minimize2, Maximize2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useBackendPackages } from '@/hooks/useBackendPackages';
-import { useBackendProperties } from '@/hooks/useBackendProperties';
-import { useBackendBookings } from '@/hooks/useBackendBookings';
+import api from '@/lib/api';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -98,13 +96,6 @@ function ChatbotPanel({ className, onClose }: { className?: string; onClose: () 
   const [inputValue, setInputValue]   = useState('');
   const [isTyping, setIsTyping]       = useState(false);
   const messagesEndRef                = useRef<HTMLDivElement>(null);
-  const dataReadyRef                  = useRef(false);
-
-  const { packages,   loading: packagesLoading   } = useBackendPackages();
-  const { properties, loading: propertiesLoading } = useBackendProperties();
-  const { bookings }                               = useBackendBookings();
-
-  const isDataLoading = packagesLoading || propertiesLoading;
 
   // Welcome message on first mount
   useEffect(() => {
@@ -124,191 +115,58 @@ function ChatbotPanel({ className, onClose }: { className?: string; onClose: () 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Post a "ready" message once data loads
-  useEffect(() => {
-    if (!isDataLoading && !dataReadyRef.current && messages.length > 0) {
-      dataReadyRef.current = true;
-      setMessages(prev => [...prev, {
-        id: Date.now().toString(),
-        text: `Ready! I have ${packages.length} package${packages.length !== 1 ? 's' : ''} and ${properties.length} propert${properties.length !== 1 ? 'ies' : 'y'} loaded.`,
-        sender: 'bot',
-        timestamp: new Date(),
-        suggestions: ['Show me packages', 'Show me properties', 'Book now'],
-      }]);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isDataLoading]);
-
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // ── Response generator ──────────────────────────────────────────────────────
-
-  const generateBotResponse = (userMessage: string): Message => {
-    const lowerMessage = userMessage.toLowerCase();
-
-    let text         = '';
-    let suggestions: string[]  = [];
-    let pkgs: Package[]        = [];
-    let props: Property[]      = [];
-    let links: NavLink[]       = [];
-
-    // ── Packages ──────────────────────────────────────────────────────────────
-    if (lowerMessage.includes('package') || lowerMessage.includes('safari') || lowerMessage.includes('tour')) {
-      if (packages.length > 0) {
-        const show = lowerMessage.includes('all') ? packages : packages.slice(0, 4);
-        text = `Here are ${show.length === packages.length ? 'all' : 'some of'} our safari packages:`;
-        pkgs = show;
-        links = [{ label: 'View all packages', to: '/packages' }];
-        suggestions = ['Book a package', 'Featured packages', 'Package pricing'];
-      } else {
-        text = "I'm still loading our packages. Please try again in a moment.";
-        suggestions = ['Try again', 'Show me properties'];
-      }
-
-    // ── Properties ────────────────────────────────────────────────────────────
-    } else if (
-      lowerMessage.includes('propert') ||
-      lowerMessage.includes('hotel') ||
-      lowerMessage.includes('lodge') ||
-      lowerMessage.includes('accommodation') ||
-      lowerMessage.includes('where to stay')
-    ) {
-      if (properties.length > 0) {
-        const show = lowerMessage.includes('all') ? properties : properties.slice(0, 4);
-        text = `Here are ${show.length === properties.length ? 'all' : 'some of'} our properties:`;
-        props = show;
-        links = [{ label: 'View all properties', to: '/collections' }];
-        suggestions = ['Book now', 'Show me packages', 'Availability'];
-      } else {
-        text = "I'm having trouble loading our properties. Please try again or visit our Collections page.";
-        links = [{ label: 'View Collections', to: '/collections' }];
-        suggestions = ['Try again'];
-      }
-
-    // ── Book ──────────────────────────────────────────────────────────────────
-    } else if (lowerMessage.includes('book') || lowerMessage.includes('reservation')) {
-      const upcoming = bookings.filter(b => new Date(b.check_in) > new Date()).slice(0, 3);
-      if (upcoming.length > 0) {
-        text = `You have ${upcoming.length} upcoming booking${upcoming.length > 1 ? 's' : ''}. Head to the booking page to manage or make a new reservation.`;
-      } else {
-        text = 'Ready to book your safari? Use the button below to start your reservation.';
-      }
-      links = [
-        { label: 'Book Now →', to: '/book' },
-        { label: 'View Packages', to: '/packages' },
-      ];
-      suggestions = ['Show me packages', 'Show me properties', 'Payment options'];
-
-    // ── Cancellation / Refunds ────────────────────────────────────────────────
-    } else if (lowerMessage.includes('cancel') || lowerMessage.includes('refund')) {
-      text =
-        'Our cancellation policy:\n' +
-        '• Cancel within 24 h of booking → 100% refund\n' +
-        '• 7+ days before check-in → 75% refund + $25 fee\n' +
-        '• 2–7 days before → 50% refund + $50 fee\n' +
-        '• Under 48 h → no refund\n\n' +
-        'You will need your Booking ID from your confirmation email.';
-      links = [{ label: 'Contact Support', to: '/contact' }];
-      suggestions = ['Contact support', 'View my bookings'];
-
-    // ── Pricing ───────────────────────────────────────────────────────────────
-    } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
-      if (packages.length > 0) {
-        text = 'Here are some package prices:';
-        pkgs = packages.slice(0, 3);
-        links = [{ label: 'See all packages', to: '/packages' }];
-      } else {
-        text = 'Please visit our Packages page for current pricing.';
-        links = [{ label: 'View Packages', to: '/packages' }];
-      }
-      suggestions = ['Show me packages', 'Book now'];
-
-    // ── Availability ──────────────────────────────────────────────────────────
-    } else if (lowerMessage.includes('availab')) {
-      const avail = properties.filter(p => p.rooms?.some(r => r.available));
-      if (avail.length > 0) {
-        text = `${avail.length} propert${avail.length > 1 ? 'ies have' : 'y has'} rooms available right now:`;
-        props = avail.slice(0, 4);
-        links = [{ label: 'Book Now', to: '/book' }];
-      } else {
-        text = 'Please check our Collections page for up-to-date availability.';
-        links = [{ label: 'View Collections', to: '/collections' }];
-      }
-      suggestions = ['Book now', 'Show me packages'];
-
-    // ── Featured / Popular ────────────────────────────────────────────────────
-    } else if (lowerMessage.includes('featured') || lowerMessage.includes('popular') || lowerMessage.includes('best')) {
-      const featPkgs  = packages.filter(p => p.featured).slice(0, 3);
-      const featProps = properties.filter(p => p.featured).slice(0, 3);
-      if (featPkgs.length > 0 || featProps.length > 0) {
-        text = 'Our most popular options:';
-        pkgs  = featPkgs;
-        props = featProps;
-        links = [
-          { label: 'All Packages', to: '/packages' },
-          { label: 'All Properties', to: '/collections' },
-        ];
-      } else {
-        text = 'Check out all our packages and properties below.';
-        links = [{ label: 'View Packages', to: '/packages' }, { label: 'View Properties', to: '/collections' }];
-      }
-      suggestions = ['Book now', 'Contact us'];
-
-    // ── Contact / Support ─────────────────────────────────────────────────────
-    } else if (lowerMessage.includes('contact') || lowerMessage.includes('support')) {
-      text = 'Our team is available Mon–Fri, 8 AM – 5 PM EAT.\n\nPhone: +254 116 072 343\nEmail: info@thebushcollection.africa\n\nOr use our Contact page to send a message.';
-      links = [{ label: 'Contact Page', to: '/contact' }];
-      suggestions = ['Book now', 'Show me packages'];
-
-    // ── Greeting ──────────────────────────────────────────────────────────────
-    } else if (/^(hi|hello|hey|howdy)/.test(lowerMessage)) {
-      text = 'Hello! Welcome to The Bush Collection. How can I help you plan your safari?';
-      suggestions = ['Show me packages', 'Show me properties', 'Book now'];
-
-    // ── Thanks ────────────────────────────────────────────────────────────────
-    } else if (lowerMessage.includes('thank')) {
-      text = "You're very welcome! Is there anything else I can help with?";
-      suggestions = ['Show me packages', 'Book now', 'Contact support'];
-
-    // ── Fallback ──────────────────────────────────────────────────────────────
-    } else {
-      text = "I can help you explore our safari packages, properties, make a booking, or get in touch with our team.";
-      suggestions = ['Show me packages', 'Show me properties', 'Book now', 'Contact support'];
-    }
-
-    return {
-      id: Date.now().toString(),
-      text,
-      sender: 'bot',
-      timestamp: new Date(),
-      suggestions,
-      packages:   pkgs.length  > 0 ? pkgs  : undefined,
-      properties: props.length > 0 ? props : undefined,
-      links:      links.length > 0 ? links : undefined,
-    };
-  };
-
   // ── Handlers ──────────────────────────────────────────────────────────────
 
-  const handleSendMessage = (messageText?: string) => {
+  const handleSendMessage = async (messageText?: string) => {
     const text = (messageText ?? inputValue).trim();
-    if (!text) return;
+    if (!text || isTyping) return;
 
-    setMessages(prev => [...prev, {
+    const nextMessages: Message[] = [...messages, {
       id: Date.now().toString(),
       text,
       sender: 'user',
       timestamp: new Date(),
-    }]);
+    }];
+    setMessages(nextMessages);
     setInputValue('');
     setIsTyping(true);
 
-    setTimeout(() => {
-      setMessages(prev => [...prev, generateBotResponse(text)]);
+    try {
+      const history = nextMessages
+        .filter(m => m.text)
+        .map(m => ({ role: m.sender === 'user' ? 'user' : 'assistant', content: m.text }));
+
+      const { data } = await api.post('/agent/chat', { messages: history });
+
+      const links: NavLink[] = [];
+      if (data.packages?.length) links.push({ label: 'View all packages', to: '/packages' });
+      if (data.properties?.length) links.push({ label: 'View all properties', to: '/collections' });
+
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        text: data.text,
+        sender: 'bot',
+        timestamp: new Date(),
+        packages: data.packages?.length ? data.packages : undefined,
+        properties: data.properties?.length ? data.properties : undefined,
+        links: links.length > 0 ? links : undefined,
+      }]);
+    } catch (err) {
+      console.error('Chatbot request failed:', err);
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        text: "Sorry, I'm having trouble connecting right now. Please try again in a moment, or reach us directly.",
+        sender: 'bot',
+        timestamp: new Date(),
+        links: [{ label: 'Contact Page', to: '/contact' }],
+      }]);
+    } finally {
       setIsTyping(false);
-    }, 800 + Math.random() * 600);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -329,8 +187,8 @@ function ChatbotPanel({ className, onClose }: { className?: string; onClose: () 
           <div className="flex items-center gap-2">
             <Bot className="h-4 w-4 text-tbc-gold/70" />
             <CardTitle className="text-xs font-light tracking-[0.2em] uppercase text-white/70">Safari Assistant</CardTitle>
-            {isDataLoading
-              ? <div className="w-1.5 h-1.5 bg-tbc-gold/50 rounded-full animate-pulse" title="Loading…" />
+            {isTyping
+              ? <div className="w-1.5 h-1.5 bg-tbc-gold/50 rounded-full animate-pulse" title="Thinking…" />
               : <div className="w-1.5 h-1.5 bg-emerald-400/70 rounded-full" title="Ready" />
             }
           </div>
@@ -448,8 +306,8 @@ function ChatbotPanel({ className, onClose }: { className?: string; onClose: () 
                         <div className="flex flex-wrap gap-1 mt-1.5">
                           {message.suggestions.map((s, i) => (
                             <Button key={i} variant="outline" size="sm"
-                              onClick={() => !isDataLoading && handleSendMessage(s)}
-                              disabled={isDataLoading}
+                              onClick={() => !isTyping && handleSendMessage(s)}
+                              disabled={isTyping}
                               className="text-[10px] h-6 px-2 rounded-none border-white/[0.1] text-white/35 hover:border-tbc-gold/40 hover:text-tbc-gold/80 hover:bg-transparent bg-transparent font-light disabled:opacity-25 disabled:cursor-wait"
                             >
                               {s}

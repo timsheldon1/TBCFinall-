@@ -1,13 +1,18 @@
 /**
  * CollectionsSEO.tsx
- * Drop this inside your Collections page route component or use
- * react-helmet-async / @vite-plugin-ssr head management.
+ * Rendered inside the Collections page route to set per-page metadata
+ * and structured data.
  *
  * WHY: Google needs crawlable metadata, structured data, and canonical
  * signals to index this page correctly and surface it for safari queries.
+ * Title/description/canonical/OG tags are applied via usePageSEO, which
+ * mutates the existing static tags from index.html in place — rendering
+ * competing <meta>/<link> elements (e.g. via react-helmet) only appends
+ * duplicates alongside the static ones, since this is a CSR app and React
+ * never hydrates <head>.
  */
 
-import { Helmet } from 'react-helmet-async';
+import { usePageSEO } from '@/hooks/usePageSEO';
 
 interface CollectionsSEOProps {
   propertyCount?: number;
@@ -23,9 +28,11 @@ export const CollectionsSEO = ({
   const description =
     `Discover ${propertyCount} handpicked luxury safari lodges, tented camps and boutique retreats across ${destinationCount} destinations in Kenya and Tanzania. ` +
     `Curated by The Bush Collection since 1983 — authentic East African safari experiences for discerning travellers.`;
-  const canonical = 'https://www.thebushcollection.africa/collections';
+  const canonical = 'https://thebushcollection.africa/collections';
   const ogImage =
     'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774958648/Mwazaro_Feb-23_npdrys.jpg';
+
+  usePageSEO({ title, description, canonical, ogImage });
 
   // ── Structured Data ───────────────────────────────────────────────────────
 
@@ -39,8 +46,8 @@ export const CollectionsSEO = ({
     provider: {
       '@type': 'TravelAgency',
       name: 'The Bush Collection',
-      url: 'https://www.thebushcollection.africa',
-      telephone: '+254116072343',
+      url: 'https://thebushcollection.africa',
+      telephone: '+254700613165',
       email: 'info@thebushcollection.africa',
       address: {
         '@type': 'PostalAddress',
@@ -62,7 +69,7 @@ export const CollectionsSEO = ({
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.thebushcollection.africa',
+        item: 'https://thebushcollection.africa',
       },
       {
         '@type': 'ListItem',
@@ -143,56 +150,34 @@ export const CollectionsSEO = ({
   };
 
   return (
-    <Helmet>
-      {/* ── Primary ─────────────────────────────────── */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <link rel="canonical" href={canonical} />
-      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-
-      {/* ── Open Graph ──────────────────────────────── */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Luxury safari lodge at Mwazaro, Kenya coast — The Bush Collection" />
-      <meta property="og:site_name" content="The Bush Collection" />
-      <meta property="og:locale" content="en_GB" />
-
-      {/* ── Twitter Card ────────────────────────────── */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content="East Africa luxury safari lodge — The Bush Collection" />
-
-      {/* ── Preconnect / Preload ─────────────────────
-           WHY: Reduces LCP by resolving DNS and TLS for Cloudinary
-           before the hero image fetch starts.                       */}
+    <>
+      {/* ── Preconnect / Preload — no static equivalent in index.html,
+           so plain JSX tags are safe; React 19 hoists them into <head>. ── */}
       <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
       <link
         rel="preload"
         as="image"
         href="https://res.cloudinary.com/dfaakg2ds/image/upload/f_auto,q_auto,w_1920/v1774958648/Mwazaro_Feb-23_npdrys.jpg"
-        fetchpriority="high"
+        fetchPriority="high"
       />
 
       {/* ── Structured Data ─────────────────────────── */}
-      <script type="application/ld+json">
-        {JSON.stringify(collectionPageSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(breadcrumbSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(touristDestinationSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </script>
-    </Helmet>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristDestinationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+    </>
   );
 };

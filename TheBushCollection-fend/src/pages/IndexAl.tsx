@@ -323,7 +323,7 @@ const propertyTypes = [
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>+254 116072343</li>
+                <li>+254 700 613165</li>
                 <li>info@thebushcollection.africa</li>
                 <li>42 Claret Close, Silanga Road, Karen.</li>
                 <li>P.O BOX 58671-00200, Nairobi</li>

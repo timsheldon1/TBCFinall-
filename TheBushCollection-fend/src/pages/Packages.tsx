@@ -741,7 +741,7 @@ export default function Packages() {
             <div>
               <h4 className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-medium mb-5">Contact</h4>
               <ul className="space-y-3 text-white/25 text-sm font-light">
-                <li>+254 116072343</li>
+                <li>+254 700 613165</li>
                 <li>info@thebushcollection.africa</li>
                 <li>42 Claret Close, Silanga Road, Karen.</li>
                 <li>P.O BOX 58671-00200, Nairobi</li>

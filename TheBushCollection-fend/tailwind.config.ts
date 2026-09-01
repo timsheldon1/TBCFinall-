@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 import tailwindcssAspectRatio from "@tailwindcss/aspect-ratio";
+import tailwindcssTypography from "@tailwindcss/typography";
 import scrollbarHide from "tailwind-scrollbar-hide";
 
 export default {
@@ -132,5 +133,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate, tailwindcssAspectRatio, scrollbarHide],
+  plugins: [tailwindcssAnimate, tailwindcssAspectRatio, tailwindcssTypography, scrollbarHide],
 } satisfies Config;

@@ -19,7 +19,7 @@ const inputCls =
 const labelCls = 'text-white/40 text-[9px] tracking-[0.35em] uppercase font-light block mb-2';
 
 const CONTACT_INFO = [
-  { icon: Phone,  label: 'Phone',  lines: ['+254 116 072 343'],                                                      sub: 'Mon – Fri, 8 AM – 5 PM EAT' },
+  { icon: Phone,  label: 'Phone',  lines: ['+254 700 613165'],                                                      sub: 'Mon – Fri, 8 AM – 5 PM EAT' },
   { icon: Mail,   label: 'Email',  lines: ['info@thebushcollection.africa', 'reservations@thebushcollection.africa'], sub: 'We respond within 24 hours' },
   { icon: MapPin, label: 'Office', lines: ['42 Claret Close', 'Silanga Road, Karen'],                                sub: 'By appointment' },
   { icon: Clock,  label: 'Hours',  lines: ['Mon – Fri: 8 AM – 4 PM'],                                               sub: 'Closed on Sundays' },
@@ -84,7 +84,7 @@ export default function Contact() {
       <section className="relative h-screen min-h-[640px] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1774956948/IMG_5999_qasbj1.jpg"
+            src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1785167779/WhatsApp_Image_2026-07-27_at_18.40.08_cadhnc.jpg"
             alt="The Bush Collection — contact our safari specialists"
             className="w-full h-full object-cover object-center"
             fetchPriority="high"
@@ -135,7 +135,7 @@ export default function Contact() {
               transition={{ duration: 0.9, delay: 0.7 }}
               className="text-white/45 text-base md:text-lg font-light leading-relaxed max-w-md mb-10"
             >
-              Our team of safari specialists is here to craft your dream African journey —
+              Our team of safari specialists is here to craft your dream African journey,
               from the first inquiry to the final sunset.
             </motion.p>
 
@@ -382,10 +382,10 @@ export default function Contact() {
                   <p className="text-tbc-gold/55 text-[9px] tracking-[0.3em] uppercase font-light">24 / 7 Emergency Line</p>
                 </div>
                 <a
-                  href="tel:+254116072343"
+                  href="tel:+254700613165"
                   className="text-2xl font-light text-white hover:text-tbc-gold transition-colors duration-300 block mb-3"
                 >
-                  +254 116 072 343
+                  +254 700 613165
                 </a>
                 <p className="text-white/28 text-xs font-light leading-relaxed">
                   For guests on active safari bookings requiring immediate on-ground assistance.
@@ -494,11 +494,11 @@ export default function Contact() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+254116072343"
+                href="tel:+254700613165"
                 className="inline-flex items-center justify-center gap-2.5 bg-tbc-gold hover:bg-tbc-gold-dark text-tbc-earth px-10 py-4 text-[10px] tracking-[0.22em] uppercase font-medium transition-colors duration-300"
               >
                 <Phone className="w-3.5 h-3.5" />
-                Call +254 116 072 343
+                Call +254 700 613165
               </a>
               <Link
                 to="/packages"

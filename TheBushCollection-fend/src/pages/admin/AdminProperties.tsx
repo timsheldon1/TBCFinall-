@@ -279,7 +279,7 @@ export default function AdminProperties() {
       maxGuests: newProperty.maxGuests,
       minNights: newProperty.minNights,
       amenities: amenitiesArray,
-      images: imagesArray.length > 0 ? imagesArray : ['https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&h=600&fit=crop'],
+      images: imagesArray,
       externalUrl: newProperty.externalUrl || null,
     };
 
@@ -419,7 +419,7 @@ export default function AdminProperties() {
           price: newRoom.price,
           maxGuests: newRoom.maxGuests,
           amenities: amenitiesArray,
-          images: imagesArray.length > 0 ? imagesArray : ['https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&h=600&fit=crop'],
+          images: imagesArray,
           available: true,
         };
         return addRoom(selectedPropertyId, roomData);

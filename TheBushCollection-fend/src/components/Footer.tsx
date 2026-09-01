@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone } from 'lucide-react';
+import { openCookieSettings } from '@/components/CookieConsent';
 
 export default function Footer() {
   return (
@@ -41,18 +42,18 @@ export default function Footer() {
             <h3 className="text-white/60 text-xs tracking-[0.2em] uppercase font-light mb-6">Destinations</h3>
             <ul className="space-y-3">
               {[
-                'Luxury Bush Camps Kenya',
-                'Luxury Bush Camps Tanzania',
-                'Beach Lodges Kenya',
-                'Masai Mara Safari Camps',
-                'Serengeti Bush Camps',
+                { to: '/bush-properties',  label: 'Bush Properties' },
+                { to: '/beach-properties', label: 'Beach Properties' },
+                { to: '/collections',      label: 'Luxury Bush Camps Tanzania' },
+                { to: '/collections',      label: 'Masai Mara Safari Camps' },
+                { to: '/collections',      label: 'Serengeti Bush Camps' },
               ].map(dest => (
-                <li key={dest}>
+                <li key={dest.label}>
                   <Link
-                    to="/collections"
+                    to={dest.to}
                     className="text-white/40 hover:text-tbc-gold text-sm font-light transition-colors duration-300"
                   >
-                    {dest}
+                    {dest.label}
                   </Link>
                 </li>
               ))}
@@ -63,9 +64,9 @@ export default function Footer() {
             <h3 className="text-white/60 text-xs tracking-[0.2em] uppercase font-light mb-6">Contact</h3>
             <ul className="space-y-3 text-white/40 text-sm font-light">
               <li>
-                <a href="tel:+254116072343" className="hover:text-tbc-gold transition-colors duration-300 flex items-center gap-2">
+                <a href="tel:+254700613165" className="hover:text-tbc-gold transition-colors duration-300 flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
-                  +254 116 072343
+                  +254 700 613165
                 </a>
               </li>
               <li>
@@ -80,11 +81,26 @@ export default function Footer() {
           </address>
         </div>
 
-        <div className="border-t border-white/[0.06] mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/[0.06] mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-white/30 text-xs tracking-wide font-light">
             &copy; {new Date().getFullYear()} The Bush Collection. All rights reserved.{' '}
             Luxury bush camps &amp; beach lodges in Kenya and Tanzania.
           </p>
+          <div className="flex items-center gap-6">
+            <Link to="/privacy-policy" className="text-white/30 hover:text-tbc-gold text-xs font-light transition-colors duration-300">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="text-white/30 hover:text-tbc-gold text-xs font-light transition-colors duration-300">
+              Terms of Service
+            </Link>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="text-white/30 hover:text-tbc-gold text-xs font-light transition-colors duration-300"
+            >
+              Cookie Settings
+            </button>
+          </div>
           <div className="flex items-center gap-2">
             <div className="w-8 h-[1px] bg-tbc-gold/30" aria-hidden="true" />
             <span className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-light">Experience is Everything</span>

@@ -1,7 +1,7 @@
 ﻿import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Suspense, lazy, Component, ReactNode } from 'react';
 import { AuthProvider } from './components/AuthProvider';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -9,6 +9,7 @@ import { AdminLayout } from './components/AdminLayout';
 import { ThemeProvider } from './components/ThemeProvider';
 import Navigation from './components/Navigation';
 import Chatbot from './components/Chatbot';
+import CookieConsent from './components/CookieConsent';
 
 class AppErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
   constructor(props: { children: ReactNode }) {
@@ -43,6 +44,8 @@ import Index from './pages/Index';
 
 // All other pages load on demand
 const Collections           = lazy(() => import('./pages/Collections'));
+const BushProperties        = lazy(() => import('./pages/BushProperties'));
+const BeachProperties       = lazy(() => import('./pages/BeachProperties'));
 const PropertyDetail        = lazy(() => import('./pages/PropertyDetail'));
 const RoomDetail            = lazy(() => import('./pages/RoomDetail'));
 const Packages              = lazy(() => import('./pages/Packages'));
@@ -54,6 +57,8 @@ const About                 = lazy(() => import('./pages/About'));
 const Contact               = lazy(() => import('./pages/Contact'));
 const MediaCenter           = lazy(() => import('./pages/MediaCenter'));
 const FAQ                   = lazy(() => import('./pages/FAQ'));
+const PrivacyPolicy         = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService        = lazy(() => import('./pages/TermsOfService'));
 const Login                 = lazy(() => import('./pages/Login'));
 const Signup                = lazy(() => import('./pages/Signup'));
 const ForgotPassword        = lazy(() => import('./pages/ForgotPassword'));
@@ -217,17 +222,25 @@ function AppContent() {
           {/* Public Routes */}
           <Route path="/" element={<Index />} />
           <Route path="/collections" element={<Collections />} />
+          <Route path="/bush-properties" element={<BushProperties />} />
+          <Route path="/beach-properties" element={<BeachProperties />} />
           <Route path="/property/:propertyId/room/:roomSlug" element={<RoomDetail />} />
           <Route path="/property/:id" element={<PropertyDetail />} />
           <Route path="/packages" element={<Packages />} />
           <Route path="/package/:id" element={<PackageDetail />} />
-          <Route path="/book" element={<BookNow />} />
-          <Route path="/payment" element={<Payment />} />
+          {/* Direct booking engine temporarily disabled — "Book Now" redirects to Contact.
+              To re-enable, restore the two routes below and remove the Navigate redirects. */}
+          {/* <Route path="/book" element={<BookNow />} /> */}
+          {/* <Route path="/payment" element={<Payment />} /> */}
+          <Route path="/book" element={<Navigate to="/contact" replace />} />
+          <Route path="/payment" element={<Navigate to="/contact" replace />} />
           <Route path="/booking-confirmation" element={<BookingConfirmation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/media-center" element={<MediaCenter />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -245,6 +258,7 @@ function AppContent() {
 
       {/* Add Chatbot to all non-admin pages */}
       {!isAdminRoute && <Chatbot />}
+      {!isAdminRoute && <CookieConsent />}
     </div>
   );
 }

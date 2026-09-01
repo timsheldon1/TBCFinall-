@@ -66,7 +66,7 @@ export default function Navigation() {
   const isActive = (path: string) => location.pathname === path;
 
   // Pages that have a dark hero the nav should float over
-  const heroPages = ['/', '/about', '/packages', '/collections', '/media-center', '/contact'];
+  const heroPages = ['/', '/about', '/packages', '/collections', '/media-center', '/contact', '/bush-properties', '/beach-properties'];
   const isHeroPage = heroPages.includes(location.pathname);
 
   return (

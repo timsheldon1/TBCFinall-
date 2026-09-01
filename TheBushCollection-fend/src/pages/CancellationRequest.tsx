@@ -134,7 +134,7 @@ export default function CancellationRequest() {
                 <Phone className="h-5 w-5 text-gray-400" />
                 <div>
                   <p className="font-medium">Phone Support</p>
-                  <p className="text-sm text-gray-600">+254 116072343</p>
+                  <p className="text-sm text-gray-600">+254 700 613165</p>
                 </div>
               </div>
             </div>

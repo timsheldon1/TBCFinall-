@@ -229,7 +229,7 @@ export default function FAQModal({ trigger }: FAQModalProps) {
                 Contact Us
               </Link>
               <a
-                href="tel:+254116072343"
+                href="tel:+254700613165"
                 className="inline-flex items-center gap-2 border border-white/15 text-white/60 px-5 py-2.5 rounded-sm text-xs uppercase tracking-wide hover:border-[#c9a961] hover:text-[#c9a961] transition-colors"
               >
                 <Phone className="w-3.5 h-3.5" />

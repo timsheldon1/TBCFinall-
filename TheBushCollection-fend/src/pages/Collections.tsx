@@ -248,8 +248,8 @@ const Collections = () => {
   {/* LCP hero image — NO lazy load, fetchpriority high */}
   <div className="absolute inset-0 animate-[kenburns_25s_ease-in-out_infinite_alternate]">
     <img
-      src="https://res.cloudinary.com/dfaakg2ds/image/upload/f_auto,q_auto,w_1920/v1774958648/Mwazaro_Feb-23_npdrys.jpg"
-      alt="Mwazaro Beach Lodge — luxury Kenya coast safari property, The Bush Collection"
+      src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1784699851/J26-1126_eedtwc.jpg"
+      alt="Mwazaro Beach Lodge, luxury Kenya coast safari property, The Bush Collection"
       className="absolute inset-0 w-full h-full object-cover object-[center_25%]"
       fetchPriority="high"
       decoding="sync"
@@ -309,7 +309,7 @@ const Collections = () => {
 
         <p className="text-white text-base md:text-lg font-light leading-relaxed max-w-xl mb-10">
           Handpicked luxury safari lodges, tented camps &amp; coastal retreats spanning the breadth
-          of Kenya and Tanzania — each chosen for its soul, since 1983.
+          of Kenya and Tanzania, each chosen for its soul, since 1983.
         </p>
 
         <div className="flex items-center gap-6">
@@ -728,8 +728,11 @@ const Collections = () => {
                     </p>
                     <div className="flex items-center gap-3 mt-4">
                       <div className="w-6 h-px bg-tbc-gold/40" aria-hidden="true" />
-                      <span className="text-white/25 text-[9px] tracking-[0.3em] uppercase font-light">
-                        Bush · Beach · Luxury · Conservation
+                      <span className="text-white/25 text-[9px] tracking-[0.3em] uppercase font-light flex items-center gap-2 flex-wrap">
+                        <Link to="/bush-properties" className="hover:text-tbc-gold transition-colors duration-300">Bush Properties</Link>
+                        ·
+                        <Link to="/beach-properties" className="hover:text-tbc-gold transition-colors duration-300">Beach Properties</Link>
+                        · Luxury · Conservation
                       </span>
                     </div>
                   </div>
@@ -798,8 +801,8 @@ const Collections = () => {
                     </Button>
                   </Link>
                   <a
-                    href="tel:+254116072343"
-                    aria-label="Call The Bush Collection: +254 116 072 343"
+                    href="tel:+254700613165"
+                    aria-label="Call The Bush Collection: +254 700 613165"
                     className="inline-flex items-center justify-center gap-2 border border-white/[0.1] hover:border-tbc-gold/30 text-white/40 hover:text-white/70 px-10 py-5 text-xs tracking-[0.2em] uppercase font-light transition-all duration-300"
                   >
                     <Phone className="w-3.5 h-3.5" aria-hidden="true" />
@@ -1356,7 +1359,7 @@ const Collections = () => {
         >
           <div className="flex gap-3">
             <a
-              href="tel:+254116072343"
+              href="tel:+254700613165"
               aria-label="Call The Bush Collection to book your safari"
               className="flex-shrink-0 flex items-center justify-center w-12 h-12 border border-white/[0.08] hover:border-tbc-gold/30 transition-colors"
             >
