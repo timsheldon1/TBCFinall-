@@ -85,6 +85,8 @@ import reviewRoutes from "./routes/review.routes.js";
 import mailchimpRoutes from "./routes/mailchimp.routes.js";
 import seasonalRateRoutes from "./routes/seasonalRate.routes.js";
 import agentRoutes from "./routes/agent.routes.js";
+import marketingRoutes from "./routes/marketing.routes.js";
+import telegramRoutes from "./routes/telegram.routes.js";
 
 dotenv.config();
 connectDB();
@@ -97,8 +99,9 @@ const app = express();
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5174",
-	"https://thebushcollection.africa",
-	"https://thebushcollection.onrender.com/"
+    "https://thebushcollection.africa",
+    "https://www.thebushcollection.africa",
+    "https://thebushcollection.vercel.app",
 ];
 
 app.use(
@@ -162,6 +165,8 @@ app.use("/reviews", reviewRoutes);
 app.use("/api/mailchimp", mailchimpRoutes);
 app.use("/seasonal-rates", seasonalRateRoutes);
 app.use("/agent", agentRoutes);
+app.use("/marketing", marketingRoutes);
+app.use("/telegram", telegramRoutes);
 
 app.get("/", (req, res) => res.send("API is running..."));
 

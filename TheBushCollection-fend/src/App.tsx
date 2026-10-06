@@ -83,6 +83,7 @@ const AdminPackages         = lazy(() => import('./pages/admin/AdminPackages'));
 const AdminAmenities        = lazy(() => import('./pages/admin/AdminAmenities'));
 const AdminSettings         = lazy(() => import('./pages/admin/AdminSettings'));
 const AdminRateCalendar     = lazy(() => import('./pages/admin/AdminRateCalendar'));
+const AdminMarketing        = lazy(() => import('./pages/admin/AdminMarketing'));
 const NotFound              = lazy(() => import('./pages/NotFound'));
 
 const PageFallback = () => (
@@ -200,6 +201,11 @@ function AppContent() {
           <Route path="/admin/settings" element={
             <ProtectedRoute adminOnly>
               <AdminSettings />
+            </ProtectedRoute>
+          } />
+          <Route path="/admin/marketing" element={
+            <ProtectedRoute adminOnly>
+              <AdminMarketing />
             </ProtectedRoute>
           } />
           <Route path="/admin/rate-calendar" element={

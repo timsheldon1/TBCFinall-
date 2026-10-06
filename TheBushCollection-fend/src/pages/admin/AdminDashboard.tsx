@@ -1,7 +1,7 @@
 import {
   Users, Calendar, DollarSign, TrendingUp, Building, Package,
   Star, Clock, ArrowUpRight, ArrowDownRight, Minus,
-  BarChart3, ChevronRight, PlaneIcon
+  BarChart3, ChevronRight, PlaneIcon, Megaphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useBackendBookings } from '@/hooks/useBackendBookings';
@@ -138,6 +138,7 @@ export default function AdminDashboard() {
     { label: 'Arrivals',   sub: 'Today\'s check-ins',          href: '/admin/arrivals',           Icon: PlaneIcon,  count: null, badge: null },
     { label: 'Analytics',  sub: 'Revenue & performance',        href: '/admin/analytics',         Icon: BarChart3,  count: null, badge: null },
     { label: 'Reviews',    sub: 'Guest feedback',               href: '/admin/reviews',            Icon: Star,       count: null, badge: null },
+    { label: 'Marketing',  sub: 'AI campaign drafts',            href: '/admin/marketing',          Icon: Megaphone,  count: null, badge: null },
   ];
 
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
