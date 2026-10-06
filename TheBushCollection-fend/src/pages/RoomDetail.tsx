@@ -456,7 +456,7 @@ export default function RoomDetail() {
             >
               <img
                 src={images[0]}
-                alt={`${room.name} — main view`}
+                alt={`${room.name}, main view`}
                 className="w-full h-full object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-[1.04]"
                 loading="lazy"
               />
@@ -473,7 +473,7 @@ export default function RoomDetail() {
                   >
                     <img
                       src={images[i]}
-                      alt={`${room.name} — view ${i + 1}`}
+                      alt={`${room.name}, view ${i + 1}`}
                       className="w-full h-full object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-[1.06]"
                       loading="lazy"
                     />

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Temporarily Under Maintenance | The Bush Collection</title>
+  <link rel="icon" href="https://res.cloudinary.com/dfaakg2ds/image/upload/v1772009350/favicon_rdkhxj.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --earth: #292524;
+      --ink: #1a1816;
+      --surface: #322e2b;
+      --ivory: #f5f0ea;
+      --gold: #c9a961;
+      --gold-dark: #b8943d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--earth);
+      background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(201, 169, 97, 0.10), transparent 60%),
+        linear-gradient(180deg, var(--earth) 0%, var(--ink) 100%);
+      color: var(--ivory);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 640px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+      max-width: 55%;
+      height: auto;
+      margin: 0 auto 36px;
+      display: block;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201, 169, 97, 0.45);
+      border-radius: 999px;
+      padding: 7px 18px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 6vw, 3.25rem);
+      line-height: 1.15;
+      margin: 0 0 20px;
+      color: var(--ivory);
+    }
+
+    .rule {
+      width: 64px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 24px;
+      opacity: 0.8;
+    }
+
+    p.lead {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(245, 240, 234, 0.72);
+      margin: 0 auto 36px;
+      max-width: 470px;
+    }
+
+    .contact {
+      background: var(--surface);
+      border: 1px solid rgba(201, 169, 97, 0.22);
+      border-radius: 4px;
+      padding: 28px 24px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 234, 0.55);
+      margin: 0 0 16px;
+    }
+
+    a.email {
+      display: inline-block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 169, 97, 0.4);
+      padding-bottom: 3px;
+      word-break: break-word;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    a.email:hover,
+    a.email:focus-visible {
+      color: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .phone {
+      margin: 18px 0 0;
+      font-size: 14px;
+      color: rgba(245, 240, 234, 0.6);
+    }
+
+    .phone a {
+      color: rgba(245, 240, 234, 0.85);
+      text-decoration: none;
+    }
+
+    .phone a:hover { color: var(--gold); }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: rgba(245, 240, 234, 0.38);
+    }
+
+    @media (max-width: 480px) {
+      .contact { padding: 24px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <img
+      class="logo"
+      src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1770803318/PNG-LOGO_1_xlw56b.png"
+      alt="The Bush Collection"
+    />
+
+    <span class="badge">Temporarily Unavailable</span>
+
+    <h1>Our site is under maintenance</h1>
+    <div class="rule"></div>
+
+    <p class="lead">
+      We are making a few improvements and will be back online shortly.
+      Enquiries and existing bookings are unaffected. Our team is on hand
+      and will respond as usual.
+    </p>
+
+    <section class="contact">
+      <p class="contact-label">For enquiries</p>
+      <a class="email" href="mailto:info@thebushcollection.africa">info@thebushcollection.africa</a>
+      <p class="phone">or call <a href="tel:+254700613165">+254 700 613165</a></p>
+    </section>
+
+    <footer>&copy; The Bush Collection</footer>
+  </main>
+</body>
+</html>

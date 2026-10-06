@@ -290,7 +290,7 @@ function PropertyTile({ property, index }: { property: Property; index: number }
           {imageUrl ? (
             <img
               src={cdnImage(imageUrl, 700)}
-              alt={`${property.name} — ${safeCapitalize(property.type || 'property')} in ${property.location}`}
+              alt={`${property.name}, ${safeCapitalize(property.type || 'property')} in ${property.location}`}
               className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
               loading="lazy"
               decoding="async"

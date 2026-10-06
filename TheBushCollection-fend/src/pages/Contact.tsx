@@ -85,7 +85,7 @@ export default function Contact() {
         <div className="absolute inset-0">
           <img
             src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1785167779/WhatsApp_Image_2026-07-27_at_18.40.08_cadhnc.jpg"
-            alt="The Bush Collection — contact our safari specialists"
+            alt="The Bush Collection: contact our safari specialists"
             className="w-full h-full object-cover object-center"
             fetchPriority="high"
             decoding="sync"
@@ -200,7 +200,7 @@ export default function Contact() {
               <span className="italic text-tbc-gold/85">Message</span>
             </h2>
             <p className="text-white/38 text-base font-light leading-relaxed max-w-xl">
-              Whether you're planning a honeymoon safari, a family expedition, or a corporate retreat — we'd love to hear from you.
+              Whether you're planning a honeymoon safari, a family expedition, or a corporate retreat, we'd love to hear from you.
             </p>
           </motion.div>
 
@@ -529,7 +529,7 @@ function NewsletterCard({ onClose }: { onClose?: () => void }) {
     try {
       const res = await subscribeToMailchimp({ email });
       if (res.success) {
-        toast.success('Subscribed — check your inbox');
+        toast.success('Subscribed! Check your inbox');
         setEmail('');
         onClose?.();
       } else {

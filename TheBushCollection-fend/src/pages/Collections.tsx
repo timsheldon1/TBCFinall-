@@ -63,7 +63,7 @@ const PropertyCard = memo(({ property, index }: PropertyCardProps) => {
       exit={{ opacity: 0, y: -12 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.85, delay: 0.04 * index, ease: [0.22, 1, 0.36, 1] }}
-      aria-label={`${property.name} — luxury safari lodge in ${property.location}`}
+      aria-label={`${property.name}, luxury safari lodge in ${property.location}`}
       className="border-b border-white/[0.05] last:border-0"
     >
       <Link to={`/property/${slug}`} className="block group" aria-label={`Explore ${property.name}`}>
@@ -76,7 +76,7 @@ const PropertyCard = memo(({ property, index }: PropertyCardProps) => {
                 src={cdnImage(imageUrl, 1000)}
                 srcSet={`${cdnImage(imageUrl, 600)} 600w, ${cdnImage(imageUrl, 1000)} 1000w, ${cdnImage(imageUrl, 1400)} 1400w`}
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                alt={`${property.name} — ${safeCapitalize(property.type || property.category || 'safari lodge')} in ${property.location}`}
+                alt={`${property.name}, ${safeCapitalize(property.type || property.category || 'safari lodge')} in ${property.location}`}
                 className="w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
@@ -174,11 +174,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How do I choose the right safari lodge in Kenya?',
-    a: "Choosing a lodge depends on your preferred ecosystem, travel style, and group size. Our collection spans private conservancies, tented bush camps, coastal retreats, and highland sanctuaries. Our travel experts match you to properties based on your priorities — whether that's the Big Five, the Migration, or pure seclusion.",
+    a: "Choosing a lodge depends on your preferred ecosystem, travel style, and group size. Our collection spans private conservancies, tented bush camps, coastal retreats, and highland sanctuaries. Our travel experts match you to properties based on your priorities, whether that's the Big Five, the Migration, or pure seclusion.",
   },
   {
     q: 'What is typically included in a luxury safari package?',
-    a: 'Most luxury packages include full-board accommodation, twice-daily game drives with expert naturalist guides, bush walks, airstrip transfers, and national park fees. Rates vary by property and season — contact us for a transparent, bespoke itinerary.',
+    a: 'Most luxury packages include full-board accommodation, twice-daily game drives with expert naturalist guides, bush walks, airstrip transfers, and national park fees. Rates vary by property and season. Contact us for a transparent, bespoke itinerary.',
   },
   {
     q: 'Do I need to overnight in Nairobi before my safari?',
@@ -186,7 +186,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Are The Bush Collection properties suitable for families?',
-    a: "Many of our properties welcome families with private vehicles, dedicated family tents or suites, and child-friendly activities. Some conservancies have minimum age requirements for certain game drives — we'll advise on the best family-friendly options.",
+    a: "Many of our properties welcome families with private vehicles, dedicated family tents or suites, and child-friendly activities. Some conservancies have minimum age requirements for certain game drives. We'll advise on the best family-friendly options.",
   },
 ];
 
@@ -885,14 +885,14 @@ const Collections = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.12 }}
-                            aria-label={`${property.name} — Nairobi hotel`}
+                            aria-label={`${property.name}, Nairobi hotel`}
                           >
                             <div className="group relative overflow-hidden bg-tbc-surface border border-white/[0.04] hover:border-tbc-gold/15 transition-all duration-700">
                               <div className="relative h-72 overflow-hidden">
                                 {property.images?.[0] ? (
                                   <img
                                     src={cdnImage(property.images[0], 800)}
-                                    alt={`${property.name} — Nairobi hotel near safari departure point`}
+                                    alt={`${property.name}, Nairobi hotel near safari departure point`}
                                     className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                                     loading="lazy"
                                     decoding="async"
@@ -1023,14 +1023,14 @@ const Collections = () => {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.5, delay: index * 0.1 }}
-                          aria-label={`${property.name} — Nairobi partner hotel`}
+                          aria-label={`${property.name}, Nairobi partner hotel`}
                         >
                           <div className="group relative overflow-hidden bg-tbc-surface border border-white/[0.04] hover:border-white/[0.06] transition-all duration-700">
                             <div className="relative h-64 overflow-hidden">
                               {property.images?.[0] ? (
                                 <img
                                   src={cdnImage(property.images[0], 800)}
-                                  alt={`${property.name} — partner hotel in Nairobi`}
+                                  alt={`${property.name}, partner hotel in Nairobi`}
                                   className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                                   loading="lazy"
                                   decoding="async"
@@ -1069,7 +1069,7 @@ const Collections = () => {
                                   className="text-white/15 text-[10px] tracking-[0.2em] uppercase font-light border border-white/[0.04] px-6 py-3 cursor-not-allowed"
                                   disabled
                                   aria-disabled="true"
-                                  aria-label={`${property.name} is an information-only listing — not directly bookable`}
+                                  aria-label={`${property.name} is an information-only listing, not directly bookable`}
                                 >
                                   Not Bookable
                                 </button>
@@ -1328,7 +1328,7 @@ const Collections = () => {
                 <span className="italic text-tbc-gold">East Africa Safari?</span>
               </h2>
               <p className="text-white/40 text-base md:text-lg font-light leading-relaxed max-w-xl mx-auto mb-14">
-                Let us craft the perfect Kenya or Tanzania safari itinerary for you — from the sun-drenched
+                Let us craft the perfect Kenya or Tanzania safari itinerary for you, from the sun-drenched
                 savannahs of the Masai Mara to the rhythm of the Indian Ocean coast.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1355,7 +1355,7 @@ const Collections = () => {
         ══════════════════════════════════════════════════════════════ */}
         <div
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-tbc-dark/95 backdrop-blur-sm border-t border-white/[0.06] p-4"
-          aria-label="Book a safari — sticky mobile call to action"
+          aria-label="Book a safari: sticky mobile call to action"
         >
           <div className="flex gap-3">
             <a

@@ -151,7 +151,7 @@ export default function PropertyDetail() {
   const rooms: RoomData[] = (property.rooms || []).map((room: any) => ({
     id: room.id || room._id || '',
     name: room.name || 'Room',
-    description: room.description || `${room.name} — accommodates up to ${room.maxGuests || room.max_guests || 2} guests.`,
+    description: room.description || `${room.name} accommodates up to ${room.maxGuests || room.max_guests || 2} guests.`,
     type: room.type || '',
     maxGuests: room.maxGuests || room.max_guests || 2,
     price: room.price || 0,
@@ -516,7 +516,7 @@ export default function PropertyDetail() {
             >
               <img
                 src={images[0]}
-                alt={`${property.name} — main view`}
+                alt={`${property.name}, main view`}
                 className="w-full h-full object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-[1.04]"
                 loading="lazy"
               />
@@ -533,7 +533,7 @@ export default function PropertyDetail() {
                   >
                     <img
                       src={images[i]}
-                      alt={`${property.name} — view ${i + 1}`}
+                      alt={`${property.name}, view ${i + 1}`}
                       className="w-full h-full object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-[1.06]"
                       loading="lazy"
                     />
@@ -580,7 +580,7 @@ export default function PropertyDetail() {
               </h2>
               {groupedRooms.length > 0 && (
                 <p className="text-white/35 text-sm font-light mt-3">
-                  {groupedRooms.length} room type{groupedRooms.length !== 1 ? 's' : ''} — exclusive wilderness access
+                  {groupedRooms.length} room type{groupedRooms.length !== 1 ? 's' : ''} · exclusive wilderness access
                 </p>
               )}
             </div>
@@ -758,7 +758,7 @@ export default function PropertyDetail() {
             <span className="italic text-tbc-gold">{property.name}</span>
           </h2>
           <p className="text-white/40 text-base font-light leading-relaxed max-w-lg mx-auto mb-14">
-            Crafted for those who seek an authentic connection with the wild — contact us to begin planning your perfect safari experience.
+            Crafted for those who seek an authentic connection with the wild. Contact us to begin planning your perfect safari experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to={`/book?property=${property.id}`}>

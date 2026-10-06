@@ -101,7 +101,7 @@ export default function PropertyCard({ property, index = 0, className = '' }: Pr
     return (
       <img
         src={img}
-        alt={`${name} — luxury ${type || 'safari lodge'} in ${location}`}
+        alt={`${name}, luxury ${type || 'safari lodge'} in ${location}`}
         className="w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
         loading={index < 3 ? 'eager' : 'lazy'}
         decoding="async"
@@ -114,7 +114,7 @@ export default function PropertyCard({ property, index = 0, className = '' }: Pr
     <Link
       to={property.externalUrl || `/property/${slug}`}
       className={`block group relative overflow-hidden bg-tbc-ink ${className}`}
-      aria-label={`${name}${location ? ` — ${location}` : ''}`}
+      aria-label={`${name}${location ? `, ${location}` : ''}`}
     >
       {/* ── Full-bleed image ── */}
       <div className="absolute inset-0">{media()}</div>

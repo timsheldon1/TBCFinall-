@@ -112,7 +112,7 @@ export default function AdminMarketing() {
           <CardHeader>
             <CardTitle className="text-base">Generate a campaign draft</CardTitle>
             <p className="text-sm text-gray-500">
-              Describe what you want — the agent will pull real package/property details and write the copy.
+              Describe what you want. The agent will pull real package/property details and write the copy.
               Every draft goes to Telegram for you to approve or reject before anything sends.
             </p>
           </CardHeader>

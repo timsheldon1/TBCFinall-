@@ -59,14 +59,14 @@ export default function ForgotPassword() {
             <span className="italic text-[#c9a961]/80">Recovery</span>
           </h2>
           <p className="text-white/35 text-sm font-light leading-relaxed max-w-sm">
-            No worries — we'll help you regain access to your account in just a moment.
+            No worries, we'll help you regain access to your account in just a moment.
           </p>
         </div>
 
         {/* Vertical text */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2">
           <span className="text-[9px] tracking-[0.5em] uppercase text-white/10 font-light [writing-mode:vertical-lr] rotate-180">
-            Est. 1983 — Curated Safari Experiences
+            Est. 1983 · Curated Safari Experiences
           </span>
         </div>
       </div>

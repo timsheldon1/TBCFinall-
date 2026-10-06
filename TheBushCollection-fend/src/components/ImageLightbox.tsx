@@ -78,7 +78,7 @@ export default function ImageLightbox({ images, index, onClose, onIndexChange, a
 
       <img
         src={images[index]}
-        alt={`${altPrefix} — image ${index + 1}`}
+        alt={`${altPrefix}, image ${index + 1}`}
         className="max-w-[92vw] max-h-[85vh] object-contain select-none"
         onClick={(e) => e.stopPropagation()}
       />

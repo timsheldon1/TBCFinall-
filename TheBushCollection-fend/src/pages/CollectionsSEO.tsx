@@ -27,7 +27,7 @@ export const CollectionsSEO = ({
     'Luxury Safari Collections | Lodges, Camps & Retreats in East Africa | The Bush Collection';
   const description =
     `Discover ${propertyCount} handpicked luxury safari lodges, tented camps and boutique retreats across ${destinationCount} destinations in Kenya and Tanzania. ` +
-    `Curated by The Bush Collection since 1983 — authentic East African safari experiences for discerning travellers.`;
+    `Curated by The Bush Collection since 1983. Authentic East African safari experiences for discerning travellers.`;
   const canonical = 'https://thebushcollection.africa/collections';
   const ogImage =
     'https://res.cloudinary.com/dfaakg2ds/image/upload/v1774958648/Mwazaro_Feb-23_npdrys.jpg';
@@ -40,7 +40,7 @@ export const CollectionsSEO = ({
   const collectionPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Luxury Safari Collections — The Bush Collection',
+    name: 'Luxury Safari Collections | The Bush Collection',
     description,
     url: canonical,
     provider: {
@@ -118,7 +118,7 @@ export const CollectionsSEO = ({
           '@type': 'Answer',
           text:
             'Choosing a lodge depends on your desired ecosystem, travel style, and budget. ' +
-            'The Bush Collection curates properties across bush, beach, and highland destinations — ' +
+            'The Bush Collection curates properties across bush, beach, and highland destinations, and ' +
             'our team can match you to the right camp based on your interests, whether that\'s the Great Migration, ' +
             'Big Five encounters, or private conservancy exclusivity.',
         },
@@ -130,7 +130,7 @@ export const CollectionsSEO = ({
           '@type': 'Answer',
           text:
             'Most luxury safari packages include full-board accommodation, twice-daily game drives with expert guides, ' +
-            'bush walks, airstrip transfers, and park fees. Rates vary by property — contact The Bush Collection ' +
+            'bush walks, airstrip transfers, and park fees. Rates vary by property. Contact The Bush Collection ' +
             'for a bespoke itinerary with transparent pricing.',
         },
       },

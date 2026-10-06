@@ -855,7 +855,7 @@ export default function BookNow() {
                     </div>
                   ) : (
                     <div className="p-4 border border-white/[0.07] text-white/30 text-sm font-light space-y-2">
-                      <p>No seasonal rate configured for this date — standard room pricing applies.</p>
+                      <p>No seasonal rate configured for this date, so standard room pricing applies.</p>
                       {(selectedProperty?.minNights ?? 1) > 1 && (
                         <p className="flex items-center gap-2 text-white/40">
                           <CalendarIcon className="w-3.5 h-3.5 text-tbc-gold/50 flex-shrink-0" />
@@ -1014,8 +1014,8 @@ export default function BookNow() {
                   <div className="pt-4 border-t border-white/[0.05] space-y-2">
                     <p className="text-white/25 text-[9px] tracking-[0.35em] uppercase font-light mb-3">Payment Schedule</p>
                     {[
-                      { label: 'First Payment — 30% Deposit', amount: paymentSchedule.depositAmount, due: paymentSchedule.depositDueDate, note: 'Non-refundable', highlight: true },
-                      { label: 'Second Payment — 70% Balance', amount: paymentSchedule.balanceAmount, due: paymentSchedule.balanceDueDate, note: new Date(paymentSchedule.balanceDueDate) <= new Date() ? 'Due immediately' : 'Due later', highlight: false },
+                      { label: 'First Payment: 30% Deposit', amount: paymentSchedule.depositAmount, due: paymentSchedule.depositDueDate, note: 'Non-refundable', highlight: true },
+                      { label: 'Second Payment: 70% Balance', amount: paymentSchedule.balanceAmount, due: paymentSchedule.balanceDueDate, note: new Date(paymentSchedule.balanceDueDate) <= new Date() ? 'Due immediately' : 'Due later', highlight: false },
                     ].map(item => (
                       <div key={item.label} className={cn('flex items-center justify-between p-4 border', item.highlight ? 'border-tbc-gold/20 bg-tbc-gold/5' : 'border-white/[0.06]')}>
                         <div>
@@ -1109,7 +1109,7 @@ export default function BookNow() {
                     </div>
                     <div className="text-right">
                       <p className="text-white/22 text-[8px] tracking-[0.3em] uppercase font-light mb-1">Meal Plan</p>
-                      <p className="text-white/55 text-xs font-light">{mealPlan} — {MEAL_PLAN_LABELS[mealPlan]}</p>
+                      <p className="text-white/55 text-xs font-light">{mealPlan}: {MEAL_PLAN_LABELS[mealPlan]}</p>
                     </div>
                   </div>
                 )}

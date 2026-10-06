@@ -100,7 +100,7 @@ export default function ResetPassword() {
         {/* Vertical text */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2">
           <span className="text-[9px] tracking-[0.5em] uppercase text-white/10 font-light [writing-mode:vertical-lr] rotate-180">
-            Est. 1983 — Curated Safari Experiences
+            Est. 1983 · Curated Safari Experiences
           </span>
         </div>
       </div>

@@ -50,7 +50,7 @@ const VALUES = [
   {
     n: '01',
     title: 'Community Partnerships',
-    body: 'All of our properties — now and in the future — are founded in partnership with local communities. This is critical for the long-term preservation of our primary asset: our wildlife.',
+    body: 'All of our properties, now and in the future, are founded in partnership with local communities. This is critical for the long-term preservation of our primary asset: our wildlife.',
   },
   {
     n: '02',
@@ -60,7 +60,7 @@ const VALUES = [
   {
     n: '03',
     title: 'Direct Community Impact',
-    body: 'All donor funding goes directly to schools and communities — because we believe education is at the forefront of conservation and lasting change.',
+    body: 'All donor funding goes directly to schools and communities, because we believe education is at the forefront of conservation and lasting change.',
   },
   {
     n: '04',
@@ -138,7 +138,7 @@ export default function About() {
               className="text-white/45 text-base md:text-lg font-light leading-relaxed max-w-lg mb-10"
             >
               Spanning Kenya and Tanzania, The Bush Collection brings together affordable lodges
-              and camps in optimal locations — delivering exceptional hospitality with heartfelt warmth.
+              and camps in optimal locations, delivering exceptional hospitality with heartfelt warmth.
             </motion.p>
 
             <motion.div
@@ -220,7 +220,7 @@ export default function About() {
                   visiting East Africa.
                 </p>
                 <p>
-                  We welcome independent brands that share our service ethic — developing{' '}
+                  We welcome independent brands that share our service ethic, developing{' '}
                   <span className="italic text-white/60">'tourism-conservation partnerships'</span>{' '}
                   that make a lasting difference.
                 </p>
@@ -462,7 +462,7 @@ export default function About() {
         <div className="absolute inset-0">
           <img
             src="https://www.azolifesciences.com/image-handler/ts/20220215094450/ri/1000/src/images/Article_Images/ImageForArticle_714_16449362895935733.jpg"
-            alt="Wildlife conservation — The Bush Collection"
+            alt="Wildlife conservation | The Bush Collection"
             className="w-full h-full object-cover"
           />
         </div>
@@ -491,14 +491,14 @@ export default function About() {
               </h2>
               <div className="space-y-5 text-white/45 font-light leading-relaxed text-[15px]">
                 <p>
-                  All of our properties — now and in the future — are{' '}
+                  All of our properties, now and in the future, are{' '}
                   <span className="text-white/75">founded in partnership with local communities</span>.
                   This is critical for the long-term preservation of our primary asset: our wildlife.
                 </p>
                 <p>
                   In 2025, each of our properties will be required to enter into{' '}
                   <span className="text-white/75">educating the next generation of conservationists</span>.
-                  All donor funding goes directly to schools and communities — because we believe
+                  All donor funding goes directly to schools and communities, because we believe
                   education is at the forefront of conservation.
                 </p>
               </div>

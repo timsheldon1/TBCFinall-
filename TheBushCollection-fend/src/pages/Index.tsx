@@ -62,7 +62,7 @@ const faqSchema = {
       "name": "What defines a luxury bush camp?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A luxury bush camp combines the raw authenticity of the African wilderness with premium amenities. Expect en-suite tented suites or elevated chalets, gourmet bush dining, private game drives in exclusive concessions, expert naturalist guides, and personalised service — all set within unfenced wilderness far from mass tourism."
+        "text": "A luxury bush camp combines the raw authenticity of the African wilderness with premium amenities. Expect en-suite tented suites or elevated chalets, gourmet bush dining, private game drives in exclusive concessions, expert naturalist guides, and personalised service, all set within unfenced wilderness far from mass tourism."
       }
     },
     {
@@ -78,7 +78,7 @@ const faqSchema = {
       "name": "Which luxury bush camps in Kenya are best for honeymooners?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Bush Collection's intimate bush camps in Kenya offer private plunge pools, sundowner setups, and dedicated butlers — making them ideal for honeymoons. Our camps in the Masai Mara ecosystem and Laikipia plateau are particularly sought after for romantic escapes with direct Big Five sightings."
+        "text": "The Bush Collection's intimate bush camps in Kenya offer private plunge pools, sundowner setups, and dedicated butlers, making them ideal for honeymoons. Our camps in the Masai Mara ecosystem and Laikipia plateau are particularly sought after for romantic escapes with direct Big Five sightings."
       }
     },
     {
@@ -94,7 +94,7 @@ const faqSchema = {
       "name": "When is the best time to visit a luxury bush camp in East Africa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The peak season for luxury bush camps in Kenya and Tanzania runs from July to October (Great Migration) and January to March (calving season). The 'green season' from November to June offers excellent value, fewer guests, and dramatic landscapes — ideal for photography and birding enthusiasts."
+        "text": "The peak season for luxury bush camps in Kenya and Tanzania runs from July to October (Great Migration) and January to March (calving season). The 'green season' from November to June offers excellent value, fewer guests, and dramatic landscapes, ideal for photography and birding enthusiasts."
       }
     }
   ]
@@ -104,11 +104,11 @@ const faqSchema = {
 const faqs = [
   {
     q: "What defines a luxury bush camp?",
-    a: "A luxury bush camp combines the raw authenticity of Africa's wilderness with premium amenities — en-suite tented suites or elevated chalets, gourmet bush dining, private game drives in exclusive conservancies, expert naturalist guides, and deeply personalised service. The key difference is intimacy: small guest numbers, unfenced wilderness, and an unfiltered connection with the natural world."
+    a: "A luxury bush camp combines the raw authenticity of Africa's wilderness with premium amenities: en-suite tented suites or elevated chalets, gourmet bush dining, private game drives in exclusive conservancies, expert naturalist guides, and deeply personalised service. The key difference is intimacy: small guest numbers, unfenced wilderness, and an unfiltered connection with the natural world."
   },
   {
     q: "What's the difference between a luxury bush camp and a standard safari lodge?",
-    a: "Luxury bush camps are smaller, more secluded, and typically situated within private concessions where access is exclusive to camp guests. This means off-road driving, night game drives, and walking safaris that standard lodges cannot offer. The ratio of staff to guests is significantly higher, and every element — from your sundowner location to your dining menu — is personalised."
+    a: "Luxury bush camps are smaller, more secluded, and typically situated within private concessions where access is exclusive to camp guests. This means off-road driving, night game drives, and walking safaris that standard lodges cannot offer. The ratio of staff to guests is significantly higher, and every element, from your sundowner location to your dining menu, is personalised."
   },
   {
     q: "Which luxury bush camps in Kenya are best for honeymooners?",
@@ -120,7 +120,7 @@ const faqs = [
   },
   {
     q: "When is the best time to visit a luxury bush camp in East Africa?",
-    a: "Peak season runs July to October for the Great Migration and January to March for calving season in Tanzania. However, the 'green season' (November to June) is a hidden gem — lush landscapes, significantly fewer guests, compelling rates, and exceptional birdlife. Our team will match you to the ideal camp for your travel dates and interests."
+    a: "Peak season runs July to October for the Great Migration and January to March for calving season in Tanzania. However, the 'green season' (November to June) is a hidden gem: lush landscapes, significantly fewer guests, compelling rates, and exceptional birdlife. Our team will match you to the ideal camp for your travel dates and interests."
   },
   {
     q: "What is typically included in a luxury bush camp stay?",
@@ -340,7 +340,7 @@ export default function Index() {
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section
   className="relative h-screen min-h-[720px] overflow-hidden bg-tbc-earth -mt-[80px]"
-  aria-label="Hero — Luxury Bush Camps & Beach Lodges in Kenya and Tanzania"
+  aria-label="Hero: Luxury Bush Camps & Beach Lodges in Kenya and Tanzania"
 >
           {carouselData.map((slide, index) => (
             <div
@@ -352,7 +352,7 @@ export default function Index() {
             >
               <OptimizedImage
                 src={slide.image}
-                alt={`${slide.place} — luxury bush camp and beach lodge on ${slide.subtitle}`}
+                alt={`${slide.place}, luxury bush camp and beach lodge on ${slide.subtitle}`}
                 className="w-full h-full object-cover"
                 loading={index === 0 ? 'eager' : 'lazy'}
                 decoding="async"
@@ -655,7 +655,7 @@ export default function Index() {
                   <span className="italic text-tbc-gold">in Kenya &amp; Tanzania</span>
                 </h2>
                 <p className="text-white/60 text-base font-light leading-relaxed mb-5">
-                  Our <strong className="font-normal text-white/80">luxury bush camps</strong> sit within some of East Africa's most productive wildlife corridors — from the famous Amboseli to the Serengeti's endless plains. Each camp is deliberately small, typically hosting fewer than 20 guests at a time.
+                  Our <strong className="font-normal text-white/80">luxury bush camps</strong> sit within some of East Africa's most productive wildlife corridors, from the famous Amboseli to the Serengeti's endless plains. Each camp is deliberately small, typically hosting fewer than 20 guests at a time.
                 </p>
                 <p className="text-white/50 text-sm font-light leading-relaxed mb-8">
                   Exclusive conservancy access means private game drives, off-road tracking, and walking safaris led by Kenya Wildlife Service-certified guides. You won't share your sundowner with a convoy of 30 vehicles.
@@ -720,7 +720,7 @@ export default function Index() {
         <section className="relative h-[55vh] md:h-[65vh] overflow-hidden" aria-label="Safari atmosphere">
           <img
             src="https://res.cloudinary.com/dfaakg2ds/image/upload/v1784699852/J26-0448_iux7ke.jpg"
-            alt="Luxury bush camp — East African wilderness"
+            alt="Luxury bush camp in the East African wilderness"
             className="w-full h-full object-cover"
             loading="lazy"
             decoding="async"
@@ -760,7 +760,7 @@ export default function Index() {
                 </h2>
                 <p className="text-white/45 text-base font-light mt-3">
                   {propertyCategoryView === 'all'
-                    ? `${filteredProperties.length} exceptional destinations — luxury bush camps & beach lodges`
+                    ? `${filteredProperties.length} exceptional destinations: luxury bush camps & beach lodges`
                     : propertyCategoryView === 'bush'
                       ? `${bushProperties.length} luxury bush camps across Kenya & Tanzania`
                       : `${beachProperties.length} coastal retreats on the Indian Ocean`}
@@ -980,7 +980,7 @@ export default function Index() {
               <span className="italic text-tbc-gold">Luxury Bush Camp Adventure?</span>
             </h2>
             <p className="text-white/50 text-lg font-light leading-relaxed max-w-2xl mx-auto mb-12">
-              Book your dream luxury bush camp or beach lodge today and create memories that will last a lifetime. Let us craft the perfect East African safari for you — from private Masai Mara camps to secluded Tanzania lodges.
+              Book your dream luxury bush camp or beach lodge today and create memories that will last a lifetime. Let us craft the perfect East African safari for you, from private Masai Mara camps to secluded Tanzania lodges.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/book">
@@ -1025,7 +1025,7 @@ function NewsletterForm({ onClose }: { onClose?: () => void }) {
         if (status === 'pending') {
           toast.info('Please check your email to confirm your subscription');
         } else {
-          toast.success('Subscribed — check your inbox for updates');
+          toast.success('Subscribed! Check your inbox for updates');
         }
         setEmail('');
         if (onClose) onClose();
@@ -1089,7 +1089,7 @@ function NewsletterStrip() {
         toast[status === 'pending' ? 'info' : 'success'](
           status === 'pending'
             ? 'Check your email to confirm your subscription'
-            : 'Subscribed — safari updates incoming'
+            : 'Subscribed! Safari updates incoming'
         );
         setEmail('');
       } else {
@@ -1116,7 +1116,7 @@ function NewsletterStrip() {
               <span className="italic text-tbc-gold">Journal</span>
             </h2>
             <p className="text-white/40 text-sm font-light leading-relaxed max-w-md">
-              Exclusive safari deals, new camp openings, seasonal travel tips, and wildlife updates — straight to your inbox.
+              Exclusive safari deals, new camp openings, seasonal travel tips, and wildlife updates, straight to your inbox.
             </p>
           </div>
 

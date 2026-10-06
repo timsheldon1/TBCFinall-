@@ -54,7 +54,7 @@ export default function TermsOfService() {
             <p>
               You're responsible for keeping your login credentials confidential and for all
               activity under your account. Provide accurate information when creating an
-              account or making a booking — inaccurate guest or contact details can delay or
+              account or making a booking. Inaccurate guest or contact details can delay or
               jeopardize your booking.
             </p>
           </section>

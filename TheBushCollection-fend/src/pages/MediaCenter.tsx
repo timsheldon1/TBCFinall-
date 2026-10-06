@@ -42,7 +42,7 @@ function buildStructuredData(items: MediaItem[]) {
   const imageGallery = {
     '@context': 'https://schema.org',
     '@type': 'ImageGallery',
-    name: 'East Africa Safari Media Gallery — The Bush Collection',
+    name: 'East Africa Safari Media Gallery | The Bush Collection',
     description: PAGE_DESCRIPTION,
     url: PAGE_URL,
     image: items
@@ -248,7 +248,7 @@ export default function MediaCenter() {
         <meta name="twitter:title"       content={PAGE_TITLE} />
         <meta name="twitter:description" content={PAGE_DESCRIPTION} />
         <meta name="twitter:image"       content={HERO_IMAGE} />
-        <meta name="twitter:image:alt"   content="East Africa safari photography — The Bush Collection" />
+        <meta name="twitter:image:alt"   content="East Africa safari photography | The Bush Collection" />
 
         {/* Geo / regional signals */}
         <meta name="geo.region"   content="KE" />
@@ -272,7 +272,7 @@ export default function MediaCenter() {
         <header>
           <section
             className="relative h-screen min-h-[640px] overflow-hidden"
-            aria-label="Media Center hero — East Africa safari gallery"
+            aria-label="Media Center hero: East Africa safari gallery"
           >
             {/* Ken Burns background */}
             <motion.div
@@ -282,7 +282,7 @@ export default function MediaCenter() {
             >
               <img
                 src={HERO_IMAGE}
-                alt="Aerial view of an East Africa safari landscape with wildlife — The Bush Collection"
+                alt="Aerial view of an East Africa safari landscape with wildlife | The Bush Collection"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="eager"
                 fetchPriority="high"
@@ -321,7 +321,7 @@ export default function MediaCenter() {
 
             <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block" aria-hidden="true">
               <span className="text-[9px] tracking-[0.5em] uppercase text-white/10 font-light [writing-mode:vertical-lr] rotate-180">
-                Est. 1983 — The Bush Collection
+                Est. 1983 · The Bush Collection
               </span>
             </div>
           </section>
@@ -460,7 +460,7 @@ export default function MediaCenter() {
         {featuredItems.length > 0 && (
           <section
             className="py-24 bg-[#292524]"
-            aria-label="Featured safari photos and videos — Editor's Picks"
+            aria-label="Featured safari photos and videos: Editor's Picks"
           >
             <div className="max-w-6xl mx-auto px-6">
               <motion.div
@@ -494,7 +494,7 @@ export default function MediaCenter() {
                     <div className="relative h-72 md:h-80 overflow-hidden">
                       <img
                         src={item.thumbnail}
-                        alt={`${item.title} — ${item.category} safari ${item.type} by The Bush Collection`}
+                        alt={`${item.title}, ${item.category} safari ${item.type} by The Bush Collection`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         loading="lazy"
                         width={600}
@@ -562,7 +562,7 @@ export default function MediaCenter() {
           <section
             ref={mediaGridRef}
             className="py-24 bg-[#322e2b] scroll-mt-8"
-            aria-label={`Full archive — ${categoryLabel}`}
+            aria-label={`Full archive: ${categoryLabel}`}
           >
             <div className="max-w-6xl mx-auto px-6">
               <motion.div
@@ -627,7 +627,7 @@ export default function MediaCenter() {
                       <div className="relative h-52 overflow-hidden">
                         <img
                           src={item.thumbnail}
-                          alt={`${item.title} — ${item.category} in East Africa | The Bush Collection safari ${item.type}`}
+                          alt={`${item.title}, ${item.category} in East Africa | The Bush Collection safari ${item.type}`}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           loading="lazy"
                           width={400}
@@ -740,7 +740,7 @@ export default function MediaCenter() {
                           <div className="relative pt-[56.25%]">
                             <iframe
                               src={embed.src}
-                              title={`${selectedMedia.title} — safari video by The Bush Collection`}
+                              title={`${selectedMedia.title}, safari video by The Bush Collection`}
                               className="absolute top-0 left-0 w-full h-full"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen
@@ -768,7 +768,7 @@ export default function MediaCenter() {
                   ) : (
                     <img
                       src={selectedMedia.url || selectedMedia.thumbnail}
-                      alt={`${selectedMedia.title} — ${selectedMedia.category} | East Africa safari photography by The Bush Collection`}
+                      alt={`${selectedMedia.title}, ${selectedMedia.category} | East Africa safari photography by The Bush Collection`}
                       className="w-full h-auto max-h-[70vh] object-contain"
                       loading="lazy"
                     />
@@ -814,7 +814,7 @@ export default function MediaCenter() {
         ══════════════════════════════════════ */}
         <section
           className="py-24 bg-[#292524] relative overflow-hidden"
-          aria-label="Book a safari — inspired by our media gallery"
+          aria-label="Book a safari inspired by our media gallery"
         >
           <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} aria-hidden="true" />
           <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
