@@ -1,7 +1,7 @@
 ﻿import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Suspense, lazy, Component, ReactNode } from 'react';
 import { AuthProvider } from './components/AuthProvider';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -234,12 +234,8 @@ function AppContent() {
           <Route path="/property/:id" element={<PropertyDetail />} />
           <Route path="/packages" element={<Packages />} />
           <Route path="/package/:id" element={<PackageDetail />} />
-          {/* Direct booking engine temporarily disabled — "Book Now" redirects to Contact.
-              To re-enable, restore the two routes below and remove the Navigate redirects. */}
-          {/* <Route path="/book" element={<BookNow />} /> */}
-          {/* <Route path="/payment" element={<Payment />} /> */}
-          <Route path="/book" element={<Navigate to="/contact" replace />} />
-          <Route path="/payment" element={<Navigate to="/contact" replace />} />
+          <Route path="/book" element={<BookNow />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/booking-confirmation" element={<BookingConfirmation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
